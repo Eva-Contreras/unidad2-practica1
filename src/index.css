@@ -1,0 +1,293 @@
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --text: #1c2430;
+  --muted: #5c6778;
+  --line: #d9e0ea;
+  --accent: #1d4e89;
+  --accent-strong: #163e6e;
+  --accent-soft: #e7f0fa;
+  --danger: #9b2c2c;
+  --danger-soft: #fdecec;
+  --done: #6b7280;
+  --shadow: 0 10px 30px rgba(28, 36, 48, 0.06);
+  --programming: #1d4e89;
+  --math: #0f6b4c;
+  --history: #8a4b08;
+  font: 16px/1.5 "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 64px;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+.header p:last-child,
+.form-help {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.task-form,
+.board {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.task-form {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+}
+
+.task-form label {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.task-form input,
+.task-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+}
+
+.task-form input:focus,
+.task-form select:focus,
+.filter:focus-visible,
+.submit-button:focus-visible,
+.delete-button:focus-visible,
+.task-check input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.form-error {
+  min-height: 1.25rem;
+  margin: 4px 0 0;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+.form-error:empty {
+  display: none;
+}
+
+.submit-button,
+.filter,
+.delete-button {
+  border: 0;
+  cursor: pointer;
+}
+
+.submit-button {
+  margin-top: 8px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.submit-button:hover {
+  background: var(--accent-strong);
+}
+
+.submit-button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.board {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0;
+}
+
+.summary div {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+}
+
+.summary dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.summary dd {
+  margin: 2px 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eef2f6;
+  color: var(--text);
+}
+
+.filter.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.task-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.task-check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.task-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.task.is-done .task-check span {
+  color: var(--done);
+  text-decoration: line-through;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-programacion {
+  background: #e7f0fa;
+  color: var(--programming);
+}
+
+.badge-matematicas {
+  background: #e5f6ef;
+  color: var(--math);
+}
+
+.badge-historia {
+  background: #fff1e0;
+  color: var(--history);
+}
+
+.delete-button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.empty-state {
+  margin: 0;
+  padding: 28px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .layout,
+  .summary,
+  .task {
+    grid-template-columns: 1fr;
+  }
+
+  .task {
+    justify-items: start;
+  }
+}
